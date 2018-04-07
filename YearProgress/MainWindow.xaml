@@ -13,7 +13,7 @@
     <Grid Background="Transparent">
         <Grid Background="Transparent">
             <Border x:Name="Border_GlowBorder" BorderBrush="Cyan" BorderThickness="5" Margin="5,5,5,5"></Border>
-            <Button x:Name="Button_Expand" Foreground="Transparent" Background="Transparent" Content="" HorizontalAlignment="Left" Width="10" Click="Button_Expand_Click"/>
+            <Button x:Name="Button_Expand" BorderBrush="Transparent" Foreground="Transparent" Background="Transparent" Content="" HorizontalAlignment="Left" Width="10" Click="Button_Expand_Click"/>
             <Grid.BitmapEffect>
                 <BlurBitmapEffect Radius="10" KernelType="Gaussian"></BlurBitmapEffect>
             </Grid.BitmapEffect>
