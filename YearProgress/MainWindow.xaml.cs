@@ -28,7 +28,10 @@ namespace YearProgress
             InitializeComponent();
         }
 
+        // Pre-assigned variables.
         bool _expanded = true;
+        bool _shown = false;
+
         private void Wait(double Seconds)
         {
             DispatcherFrame Frame = new DispatcherFrame();
@@ -42,42 +45,8 @@ namespace YearProgress
             Thr.Start();
             Dispatcher.PushFrame(Frame);
         }
-        private int TotalDaysOfYear(int Year)
-        {
-            int ReturnValue = 0;
-            for (int Month = 1; Month <= 12; Month++){
-                ReturnValue += DateTime.DaysInMonth(Year, Month);
-            }
-            return ReturnValue;
-        }
-        /// <summary>
-        /// Convert 1 to 01
-        /// </summary>
-        /// <param name="Input">Input time.</param>
-        /// <returns></returns>
-        private string OneToTwo(int Input)
-        {
-            if (Input.ToString().Length == 1)
-            {
-                return "0" + Input.ToString();
-            }
-            else
-            {
-                return Input.ToString();
-            }
-        }
-
-        private string GetRemainingTime()
-        {
-            DateTime NextYearFirstSec = new DateTime(DateTime.Now.Year + 1, 1, 1, 0, 0, 0);
-            DateTime Now = DateTime.Now;
-            TimeSpan Remaining = (NextYearFirstSec - Now);
-            return Remaining.Days + "d/" + OneToTwo(Remaining.Hours) + ":" + OneToTwo(Remaining.Minutes) + ":" + OneToTwo(Remaining.Seconds);
-        }
 
         // Events are proceed here!
-
-        bool _shown;
 
         protected override void OnContentRendered(EventArgs e)
         {
@@ -102,24 +71,24 @@ namespace YearProgress
                 DateTime Now = DateTime.Now;
                 TimeSpan SpentTime = new TimeSpan(Now.DayOfYear, Now.Hour, Now.Minute, Now.Second);
 
-                TextBlock_Date.Text = OneToTwo(Now.Month) + "/" + OneToTwo(Now.Day) + "/" + Now.Year + " " + OneToTwo(Now.Hour) + ":" + OneToTwo(Now.Minute) + ":" + OneToTwo(Now.Second);
+                TextBlock_Date.Text = Calculations.OneToTwo(Now.Month) + "/" + Calculations.OneToTwo(Now.Day) + "/" + Now.Year + " " + Calculations.OneToTwo(Now.Hour) + ":" + Calculations.OneToTwo(Now.Minute) + ":" + Calculations.OneToTwo(Now.Second);
 
                 // Update remaining time.
-                TextBlock_RemainingDate.Text = GetRemainingTime() + " remaining.";
+                TextBlock_RemainingDate.Text = Calculations.GetRemainingTime() + " remaining.";
 
                 // Update spent time.
-                TextBlock_PastTime.Text = Now.DayOfYear + "d/" + OneToTwo(Now.Hour) + ":" + OneToTwo(Now.Minute) + ":" + OneToTwo(Now.Second);
+                TextBlock_PastTime.Text = Now.DayOfYear + "d/" + Calculations.OneToTwo(Now.Hour) + ":" + Calculations.OneToTwo(Now.Minute) + ":" + Calculations.OneToTwo(Now.Second);
 
                 // Update total time.
-                TextBlock_TotalTime.Text = TotalDaysOfYear(Now.Year) + "d/00:00:00";
+                TextBlock_TotalTime.Text = Calculations.TotalDaysOfYear(Now.Year) + "d/00:00:00";
 
                 // Update progressbar.
-                ProgressBar_YearProgress.Maximum = TotalDaysOfYear(Now.Year) * 24 * 60 * 60;
+                ProgressBar_YearProgress.Maximum = Calculations.TotalDaysOfYear(Now.Year) * 24 * 60 * 60;
                 ProgressBar_YearProgress.Value = SpentTime.TotalSeconds;
                 ProgressBar_YearProgress.Minimum = 0;
 
                 // Update percentage.
-                TextBlock_Percentage.Text = Math.Round((SpentTime.TotalSeconds / (TotalDaysOfYear(Now.Year) * 24 * 60 * 60)) * 100, 5) + "%";
+                TextBlock_Percentage.Text = Math.Round((SpentTime.TotalSeconds / (Calculations.TotalDaysOfYear(Now.Year) * 24 * 60 * 60)) * 100, 5) + "%";
 
                 Wait(0.5);
             }
@@ -154,6 +123,49 @@ namespace YearProgress
                 this.Left = this.Left + this.Width - 10;
                 _expanded = false;
             }
+        }
+    }
+    public class Calculations
+    {
+        /// <summary>
+        /// Get total days of specified year.
+        /// </summary>
+        /// <param name="Input">Input year.</param>
+        /// <returns></returns>
+        public static int TotalDaysOfYear(int Year)
+        {
+            int ReturnValue = 0;
+            for (int Month = 1; Month <= 12; Month++){
+                ReturnValue += DateTime.DaysInMonth(Year, Month);
+            }
+            return ReturnValue;
+        }
+        /// <summary>
+        /// Convert 1 to 01
+        /// </summary>
+        /// <param name="Input">Input time.</param>
+        /// <returns></returns>
+        public static string OneToTwo(int Input)
+        {
+            if (Input.ToString().Length == 1)
+            {
+                return "0" + Input.ToString();
+            }
+            else
+            {
+                return Input.ToString();
+            }
+        }
+        /// <summary>
+        /// Get remaining time (string) of current year.
+        /// </summary>
+        /// <returns></returns>
+        public static string GetRemainingTime()
+        {
+            DateTime NextYearFirstSec = new DateTime(DateTime.Now.Year + 1, 1, 1, 0, 0, 0);
+            DateTime Now = DateTime.Now;
+            TimeSpan Remaining = (NextYearFirstSec - Now);
+            return Remaining.Days + "d/" + OneToTwo(Remaining.Hours) + ":" + OneToTwo(Remaining.Minutes) + ":" + OneToTwo(Remaining.Seconds);
         }
     }
 }
