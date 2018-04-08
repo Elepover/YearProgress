@@ -88,7 +88,7 @@ namespace YearProgress
                 ProgressBar_YearProgress.Minimum = 0;
 
                 // Update percentage.
-                TextBlock_Percentage.Text = Math.Round((SpentTime.TotalSeconds / (TotalDaysOfYear(Now.Year) * 24 * 60 * 60)) * 100, 5) + "%";
+                TextBlock_Percentage.Text = Math.Round((SpentTime.TotalSeconds / (Calculations.TotalDaysOfYear(Now.Year) * 24 * 60 * 60)) * 100, 5) + "%";
 
                 Wait(0.5);
             }
