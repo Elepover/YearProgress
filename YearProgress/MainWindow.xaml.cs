@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -77,7 +77,7 @@ namespace YearProgress
                 TextBlock_RemainingDate.Text = Calculations.GetRemainingTime() + " remaining.";
 
                 // Update spent time.
-                TextBlock_PastTime.Text = Now.DayOfYear + "d/" + Calculations.OneToTwo(Now.Hour) + ":" + Calculations.OneToTwo(Now.Minute) + ":" + Calculations.OneToTwo(Now.Second);
+                TextBlock_PastTime.Text = (Now.DayOfYear - 1) + "d/" + Calculations.OneToTwo(Now.Hour) + ":" + Calculations.OneToTwo(Now.Minute) + ":" + Calculations.OneToTwo(Now.Second);
 
                 // Update total time.
                 TextBlock_TotalTime.Text = Calculations.TotalDaysOfYear(Now.Year) + "d/00:00:00";
@@ -88,7 +88,7 @@ namespace YearProgress
                 ProgressBar_YearProgress.Minimum = 0;
 
                 // Update percentage.
-                TextBlock_Percentage.Text = Math.Round((SpentTime.TotalSeconds / (Calculations.TotalDaysOfYear(Now.Year) * 24 * 60 * 60)) * 100, 5) + "%";
+                TextBlock_Percentage.Text = Math.Round((SpentTime.TotalSeconds / (Calculations.TotalDaysOfYear(Now.Year) * 24 * 60 * 60)) * 100, 7) + "%";
 
                 Wait(0.5);
             }
