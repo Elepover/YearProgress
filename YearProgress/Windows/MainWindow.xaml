@@ -6,20 +6,11 @@
         xmlns:local="clr-namespace:YearProgress" Topmost="True"
         mc:Ignorable="d" Loaded="MainWindow_Loaded"
         AllowsTransparency="True" Background="Transparent" Title="YearProgress" ShowInTaskbar="False" WindowStyle="None" ResizeMode="NoResize" Height="150" Width="425">
-  <Window.Resources>
-    <FontFamily x:Key="BreeSerif">/YearProgress;component/Resources/#Bree Serif</FontFamily>
-    <FontFamily x:Key="SpaceMono">/YearProgress;component/Resources/#Space Mono</FontFamily>
-  </Window.Resources>
-  <Window.Triggers>
-    <EventTrigger RoutedEvent="Window.Loaded">
-      <BeginStoryboard>
-        <Storyboard x:Name="Storyboard_WindowSlide">
-          <DoubleAnimation x:Name="DoubleAnimation_WindowSlide" Duration="0:0:.8" Storyboard.TargetProperty="Left" From="0" To="0" AccelerationRatio=".1"/>
-        </Storyboard>
-      </BeginStoryboard>
-    </EventTrigger>
-  </Window.Triggers>
-  <Grid Background="Transparent">
+    <Window.Resources>
+        <FontFamily x:Key="BreeSerif">/YearProgress;component/Resources/#Bree Serif</FontFamily>
+        <FontFamily x:Key="SpaceMono">/YearProgress;component/Resources/#Space Mono</FontFamily>
+    </Window.Resources>
+    <Grid Background="Transparent">
     <Grid Background="Transparent">
       <Border x:Name="Border_GlowBorder" BorderBrush="Cyan" BorderThickness="5" Margin="5,5,5,5"></Border>
       <Button x:Name="Button_Expand" BorderBrush="Transparent" Foreground="Transparent" Background="Transparent" Content="" Click="Button_Expand_Click" Margin="0,0,415,0" HorizontalAlignment="Right" Width="10"/>
