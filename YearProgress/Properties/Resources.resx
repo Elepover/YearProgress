@@ -121,15 +121,6 @@
   <data name="BreeSerif_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BreeSerif-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="SpaceMono_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SpaceMono-Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SpaceMono_BoldItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SpaceMono-BoldItalic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SpaceMono_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SpaceMono-Italic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="SpaceMono_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SpaceMono-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

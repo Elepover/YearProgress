@@ -73,36 +73,6 @@ namespace YearProgress.Properties {
         /// <summary>
         ///   查找 System.Byte[] 类型的本地化资源。
         /// </summary>
-        internal static byte[] SpaceMono_Bold {
-            get {
-                object obj = ResourceManager.GetObject("SpaceMono_Bold", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] SpaceMono_BoldItalic {
-            get {
-                object obj = ResourceManager.GetObject("SpaceMono_BoldItalic", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] SpaceMono_Italic {
-            get {
-                object obj = ResourceManager.GetObject("SpaceMono_Italic", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
         internal static byte[] SpaceMono_Regular {
             get {
                 object obj = ResourceManager.GetObject("SpaceMono_Regular", resourceCulture);

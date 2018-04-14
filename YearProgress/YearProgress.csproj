@@ -50,6 +50,9 @@
   <PropertyGroup>
     <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>YearProgress.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -70,7 +73,7 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -78,7 +81,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Modules\Calculations.cs" />
+    <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -100,15 +104,13 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Resource Include="Resources\BreeSerif-Regular.ttf" />
-    <Resource Include="Resources\SpaceMono-Bold.ttf" />
-    <Resource Include="Resources\SpaceMono-BoldItalic.ttf" />
-    <Resource Include="Resources\SpaceMono-Italic.ttf" />
     <Resource Include="Resources\SpaceMono-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
